@@ -3,21 +3,27 @@ for i in range(t):
     cnt = 0
     n, m = map(int,input().split())
     temp = list(map(int, input().split()))
-    imp = []
-    for j in range(len(temp)):
-        imp.append([j,temp[j]])
-    found = False
-    count = 0
+    if n==1:
+        print(1)
+        continue
+    queue = []
+    for i in range(len(temp)):
+        queue.append([i,temp[i]])
+    cnt = 0
     while True:
-        if imp[0][0] == max(imp, key=lambda x:x[1])[1]:
-            count+=1
-            if imp[0][1] ==m :
-                print(count)
+        currMax = max(queue, key=lambda x:x[1])[1]
+        start = queue[0]
+        if start[1]==currMax:
+            cnt+=1
+            if start[0]==m:
                 break
-            else:
-                imp.pop(0)
+            queue.pop(0)
+            continue
         else:
-            imp.append(imp.pop(0))
+            queue.append(queue.pop(0))
+    print(cnt)
+
+
 
 
 
