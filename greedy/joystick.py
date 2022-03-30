@@ -15,3 +15,5 @@ def solution(name):
         min_left_right = min(min_left_right, idx + idx + len(name) - next_idx)
     answer += min_left_right
     return answer
+
+
